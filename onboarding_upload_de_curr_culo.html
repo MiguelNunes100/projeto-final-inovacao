@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EmployMe - Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#161c22",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed-dim": "#c6c6c9",
+                        "on-error": "#ffffff",
+                        "primary-container": "#c6eea2",
+                        "surface-container": "#edeeef",
+                        "primary-fixed": "#c7efa3",
+                        "on-surface-variant": "#43483d",
+                        "inverse-primary": "#abd289",
+                        "outline": "#74796c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#454749",
+                        "surface-tint": "#46672b",
+                        "inverse-surface": "#2e3132",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-surface": "#191c1d",
+                        "surface": "#f8f9fa",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-container": "#636467",
+                        "surface-dim": "#d9dadb",
+                        "secondary": "#5d5e61",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c3c8b9",
+                        "on-secondary-fixed": "#1a1c1e",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "surface-container-highest": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "on-background": "#191c1d",
+                        "primary-fixed-dim": "#abd289",
+                        "on-primary-fixed": "#0c2000",
+                        "primary": "#46672b",
+                        "tertiary-fixed": "#dde3eb",
+                        "on-tertiary-container": "#5e646b",
+                        "tertiary-container": "#dce2ea",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "secondary-container": "#e2e2e5",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed": "#e2e2e5",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#2f4f15",
+                        "on-primary-container": "#4b6d30",
+                        "tertiary": "#595f66",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1440px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; background-color: #F8F9FA; }
+        .drop-zone-active { border-color: #46672b !important; background-color: rgba(198, 238, 162, 0.1); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation (Shell Implementation) -->
+<header class="bg-surface sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-max-width mx-auto h-16">
+<div class="flex items-center gap-2">
+<img alt="EmployMe Logo" class="h-16 w-auto" src="Imagens/EmployMe2.PNG"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">EmployMe</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="feed_de_vagas_e_detec_o_de_ghost_jobs.html">Vagas</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="stitch_employ_me_agent_ai.html">Adaptar Currículo</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="radar_de_compet_ncias_e_cursos.html">Upskilling</a>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-md transition-all hover:brightness-95 inline-block" href="login_employme_agent.html">Entrar</a>
+</div>
+</div>
+</header>
+<main class="min-h-[calc(100vh-128px)] flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop py-12">
+<div class="w-full max-w-4xl grid md:grid-cols-2 gap-12 items-start">
+<!-- Left Side: Content & Onboarding Info -->
+<div class="space-y-6">
+<div class="space-y-2">
+<span class="text-primary font-label-md tracking-wider uppercase">Onboarding</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight">
+                        Construa seu perfil profissional
+                    </h1>
+<p class="font-body-lg text-body-lg text-secondary">
+                        Nossa IA analisará sua experiência para encontrar as melhores oportunidades de carreira para você.
+                    </p>
+</div>
+<div class="space-y-4 pt-4">
+<div class="flex items-start gap-4">
+<div class="bg-primary-container p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">psychology</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">IA de Próxima Geração</p>
+<p class="font-label-sm text-secondary">Extração inteligente de competências e conquistas.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary-container p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">target</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Match Perfeito</p>
+<p class="font-label-sm text-secondary">Conectamos você apenas com vagas de alta relevância.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Interaction Form (Glassmorphism inspired Card) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm">
+<form class="space-y-6" id="onboardingForm" action="painel_de_controle_employme.html" method="get">
+<!-- File Upload Area -->
+<div class="group relative border-2 border-dashed border-outline-variant rounded-xl p-10 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer hover:border-primary" id="dropZone">
+<input accept=".pdf" class="hidden" id="fileInput" type="file"/>
+<div class="bg-surface-container-high p-4 rounded-full transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary text-4xl">upload_file</span>
+</div>
+<div class="text-center">
+<p class="font-label-md text-on-surface font-bold">Arraste seu PDF aqui</p>
+<p class="font-label-sm text-secondary">ou clique para selecionar arquivo</p>
+</div>
+<p class="hidden font-label-sm text-primary font-medium mt-2" id="fileName"></p>
+</div>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="font-label-md text-on-surface" for="cargo">Cargo Desejado</label>
+<input class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-body-md" id="cargo" placeholder="Ex: Desenvolvedor Senior" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-on-surface" for="experiencia">Nível de Experiência</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-body-md appearance-none" id="experiencia">
+<option disabled="" selected="" value="">Selecione seu nível</option>
+<option value="junior">Junior</option>
+<option value="pleno">Pleno</option>
+<option value="senior">Senior</option>
+<option value="lead">Liderança</option>
+</select>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-2 hover:brightness-95 active:scale-[0.98] transition-all" type="submit">
+                        Analisar Perfil
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center font-label-sm text-secondary">Suas informações estão protegidas por criptografia.</p>
+</form>
+</div>
+</div>
+<!-- Minimalist Testimonial Footer -->
+<div class="mt-20 max-w-2xl w-full border-t border-outline-variant pt-8 flex flex-col items-center text-center gap-4">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-body-md text-secondary italic">
+                "A EmployMe me ajudou a refinar meu currículo técnico e em menos de duas semanas recebi propostas que realmente faziam sentido para minha carreira."
+            </blockquote>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Avatar Usuário" class="w-full h-full object-cover" data-alt="A professional headshot of a young male professional in a modern office environment. The image is bright with soft, natural lighting, reflecting a light-mode aesthetic. He has a warm, confident expression, symbolizing success in career growth. The background is slightly blurred to emphasize the subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAcNlbJwU9FiOfQpuxIuXqwKJpdgvbByQOJcub_o0CPpawkwjd62KCzr0f66xwl5OX9xf1XJ4ysay39kR80bUSvV1wx4E8T6IzQYw0KfCXfdxCiVy7yK5B-Qmca9-Zs0G6SsooFmywm_M-rvpaM06DJoOxyzwnhYLi6vuhu-KjWCcBVMt-WsXUtQtZCmxpxn5QFnMLtBvgQP7xxSkxvhwN1HYf_QRjwAJSPiv1PPcqTi2boIjpqp63beaFskiLFoLJNuGRklO_JbA"/>
+</div>
+<cite class="font-label-md text-on-surface not-italic font-bold">— Ricardo Mendes, Product Designer</cite>
+</div>
+</div>
+</main>
+<footer class="w-full py-12 px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between gap-gutter border-t border-outline-variant bg-surface-container-lowest">
+<div class="space-y-4">
+<span class="font-headline-lg text-headline-lg font-black text-on-surface">EmployMe</span>
+<p class="font-label-md text-secondary max-w-xs">Inteligência Artificial aplicada ao seu crescimento profissional.</p>
+<p class="font-label-md text-on-secondary-fixed-variant">© 2024 EmployMe AI. Todos os direitos reservados.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="space-y-4">
+<p class="font-label-md text-on-surface font-bold">Produto</p>
+<ul class="space-y-2">
+<li><a class="font-label-md text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Sobre Nós</a></li>
+<li><a class="font-label-md text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Carreiras</a></li>
+<li><a class="font-label-md text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Ética em IA</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="font-label-md text-on-surface font-bold">Legal</p>
+<ul class="space-y-2">
+<li><a class="font-label-md text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Termos de Uso</a></li>
+<li><a class="font-label-md text-on-secondary-fixed-variant hover:text-primary underline transition-opacity" href="#">Privacidade</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="font-label-md text-on-surface font-bold">Social</p>
+<div class="flex gap-4">
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">link</span></a>
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">group</span></a>
+<a class="text-secondary hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drop-zone-active');
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.remove('drop-zone-active');
+            });
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            if (files.length > 0) {
+                const file = files[0];
+                if (file.type === 'application/pdf') {
+                    fileNameDisplay.textContent = `Arquivo selecionado: ${file.name}`;
+                    fileNameDisplay.classList.remove('hidden');
+                } else {
+                    alert('Por favor, envie um arquivo PDF.');
+                }
+            }
+        }
+
+        document.getElementById('onboardingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">refresh</span> Analisando...`;
+            
+            setTimeout(() => {
+                alert('Análise iniciada! Nossa IA está processando seu perfil.');
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+            }, 2000);
+        });
+    </script>
+</body></html>

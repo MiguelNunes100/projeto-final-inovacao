@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EmployMe - Seu Agente de Empregos com IA Pessoal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#161c22",
+                    "surface-bright": "#f8f9fa",
+                    "secondary-fixed-dim": "#c6c6c9",
+                    "on-error": "#ffffff",
+                    "primary-container": "#c6eea2",
+                    "surface-container": "#edeeef",
+                    "primary-fixed": "#c7efa3",
+                    "on-surface-variant": "#43483d",
+                    "inverse-primary": "#abd289",
+                    "outline": "#74796c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#454749",
+                    "surface-tint": "#46672b",
+                    "inverse-surface": "#2e3132",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-surface": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-secondary-container": "#636467",
+                    "surface-dim": "#d9dadb",
+                    "secondary": "#5d5e61",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c3c8b9",
+                    "on-secondary-fixed": "#1a1c1e",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "surface-container-highest": "#e1e3e4",
+                    "background": "#f8f9fa",
+                    "on-background": "#191c1d",
+                    "primary-fixed-dim": "#abd289",
+                    "on-primary-fixed": "#0c2000",
+                    "primary": "#46672b",
+                    "tertiary-fixed": "#dde3eb",
+                    "on-tertiary-container": "#5e646b",
+                    "tertiary-container": "#dce2ea",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "secondary-container": "#e2e2e5",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e1e3e4",
+                    "secondary-fixed": "#e2e2e5",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#2f4f15",
+                    "on-primary-container": "#4b6d30",
+                    "tertiary": "#595f66",
+                    "surface-container-low": "#f3f4f5",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1440px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #c3c8b9;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(70, 103, 43, 0.1);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-inverse-surface fixed top-0 w-full z-50">
+<nav class="flex justify-between items-center w-full px-margin-desktop max-w-max-width mx-auto h-16">
+<div class="flex items-center gap-4">
+<img alt="EmployMe Logo" class="h-16 w-16 object-contain" src="Imagens/EmployMe2.PNG"/>
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface">EmployMe</span>
+</div>
+    <div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1" href="feed_de_vagas_e_detec_o_de_ghost_jobs.html">Vagas</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors" href="stitch_employ_me_agent_ai.html">Adaptar Currículo</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors" href="radar_de_compet_ncias_e_cursos.html">Upskilling</a>
+<a class="font-body-md text-body-md text-secondary dark:text-secondary-fixed hover:text-primary dark:hover:text-primary-fixed transition-colors" href="painel_de_controle_employme.html">Dashboard</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="px-6 py-2 rounded-full border border-outline text-on-surface font-label-md hover:bg-surface-container-low transition-all inline-block" href="login_employme_agent.html">Entrar</a>
+<a class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-label-md hover:opacity-90 transition-all inline-block" href="cadastro_criar_conta.html">Começar</a>
+</div>
+</nav>
+</header>
+<main class="flex-grow pt-24">
+<!-- Hero Section -->
+<section class="relative px-margin-desktop max-w-max-width mx-auto py-16 md:py-32 flex flex-col items-center text-center">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-label-md mb-8 animate-fade-in">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Inteligência Artificial para sua Carreira</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl md:text-[64px] md:leading-[72px] mb-6 max-w-4xl">
+                Seu Agente de Empregos com <span class="text-primary italic">IA Pessoal</span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mb-12 leading-relaxed">
+                Automatize sua busca, ignore vagas fantasmas e conquiste sua próxima oportunidade com currículos otimizados por IA.
+            </p>
+<div class="flex flex-col sm:flex-row items-center gap-4 mb-20">
+<a href="cadastro_criar_conta.html" class="w-full sm:w-auto px-8 py-4 rounded-full bg-primary-container text-on-primary-container font-headline-md text-[18px] hover:shadow-lg transition-all flex items-center justify-center gap-2 inline-flex">
+                    Começar Agora
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<button class="w-full sm:w-auto px-8 py-4 rounded-full border border-outline text-on-surface font-headline-md text-[18px] hover:bg-white transition-all">
+                    Ver Demonstração
+                </button>
+</div>
+<!-- Social Proof -->
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale">
+<img alt="Google" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwoTiJIx7oF3Wpux6NOYa2Meh8wsKpN3YXi6rS_f7pE7WEyPDUha4Tx0hK5Yy6gIPRtHDTWLPak-Aiij9fmC76dd4HHU3QmN9kKe38bx7mIFJnINbHKI_9zln7mwCLJ9yEGv-LrqMo6J3mcAZWeQS_o8Yp74WNs1gOlkjbUHb8p9W46WtxRviJQTliZr309Jdb03JKsxdZdEY3Chme6rsl3hLSeCjXiE3baRH0pbukUTylWJr85F0DVV1Nfjli81FIfwescu5NinI"/>
+<img alt="Amazon" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg-vLr6lgcAacQ8mRfw_k9GE_42UfM5nEY_IORERFGeRXZJ0ziBJu9Us_24DTISELL9FuGFhUvelyl9RE_8zvpA3SoQ6biHsuz3SGsF-JLtvXWZeqg53osqxTGu63D7BOTuX2EpE82U-nbJE-PJFaTtdTcXaUFysAHRgzu7q91uNZp3U646T8LRvuZdNitxhxy8aCNBhyJreVnpi_8M_9VSz_wpP23c_0_ddaiKt117IUHR-fGObf-F5L7p20gXg8Ym0bvru0krMQ"/>
+<img alt="Microsoft" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-TRRKddRB1AZWV_tPlhXArtaR4abhXobUVVM5fJ6yISaamyh0EkWW_XqAdPV_Xxvd4VgQDrJLo3sxzls_DxyNlQTXfwYnZmVx052rNIThaJkUcSKtB-f6pNv7Ew2QHZrf0cbrPWrE-4SB0MAf39xwWNa4rt6k-P5lrAhqm2UzJy1MXH40JghI6CCdB-BEaOtY0OBWMCN9deOR3TigKklMeqjXgR-3ZDR5cOF82AzNWz-aZeS88FuMt-CMZXt969cTuI9RWGPXHaQ"/>
+<img alt="Netflix" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD5Eexgluat8e2kSxTwYqZa1OoFvApLsa926GF2Nyh1cWJri1Zw8EluW4ynqjHNlFcgsM1LGmOt8SAb55MGCY5M-oCgHfS4V1wJGqrxF7VPkXrfaFBakVBjLTQMPtVDQLV2o-jtEIu_ZDaMAWdH97cTvCaI1UumszYq4-JROgTrRKAqwYrMex6pVc0NJn8ETNsEekwB_B7kJGfVyu_G4I7Z5qV2gz7Fi8g53RL0-FZM2wnVEC4ok0cyJZ16KQdHlgOXc3MQR_w7_Y"/>
+</div>
+</section>
+<!-- Bento Grid Benefits -->
+<section class="px-margin-desktop max-w-max-width mx-auto py-24">
+<div class="mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4 text-center md:text-left">Por que escolher o EmployMe?</h2>
+<p class="font-body-md text-body-md text-secondary text-center md:text-left">Tecnologia avançada para simplificar o mercado de trabalho.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature: Ghost Job Detection -->
+<div class="md:col-span-8 bento-card rounded-xl p-8 flex flex-col justify-between overflow-hidden relative group">
+<div>
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">search_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Detecção de Vagas Fantasmas</h3>
+<p class="font-body-md text-body-md text-secondary max-w-md">
+                            Nossa IA analisa padrões de postagem e atividade da empresa para identificar anúncios que não pretendem contratar, economizando seu tempo e energia.
+                        </p>
+</div>
+<div class="mt-8 flex justify-end">
+<img alt="Análise de Vagas IA" class="w-full max-w-md rounded-lg shadow-2xl translate-y-8 group-hover:translate-y-4 transition-transform duration-500" data-alt="A clean, minimalist user interface dashboard showing a recruitment analysis chart. The interface uses a soft tea green and white color palette with sharp data visualizations. The lighting is bright and professional, illustrating a high-tech talent intelligence platform designed for clarity and efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2xmlaA2kd6ANR2ffCICpCmdxYCXmeRjQj1MHv0bSgvq6Y5MEBRC2x3Pl0ixiixEebpDDl1DEqj8RwKPPYYm345Y6Is6aEfDskAIkgisLjtMIWevrW0S63V971ybIZrW-5yeg1fP1hwiuFOanIPueK6aJyvEwYw0vimgsWCSb1qcBs31zR0ds2wOUu2dTFvp82AKYzo86Ntkda13njfpbpUmlBKHos_kRHAA5-QgEiK_E5RHFJnlP8TJOZNJ0KsfPVtP-OMfLz1rs"/>
+</div>
+</div>
+<!-- Small Feature: Skill Radar -->
+<div class="md:col-span-4 bento-card rounded-xl p-8 flex flex-col gap-6">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-4">Radar de Habilidades</h3>
+<p class="font-body-md text-body-md text-secondary">
+                            Compare seu perfil com as exigências do mercado em tempo real e descubra exatamente o que falta para a vaga dos seus sonhos.
+                        </p>
+</div>
+<div class="flex-grow flex items-end justify-center py-4">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<div class="absolute inset-0 border-4 border-primary/20 rounded-full"></div>
+<div class="absolute inset-0 border-4 border-primary border-t-transparent rounded-full rotate-45"></div>
+<span class="text-primary font-bold text-headline-md">85%</span>
+</div>
+</div>
+</div>
+<!-- Small Feature: Easy Tracking -->
+<div class="md:col-span-4 bento-card rounded-xl p-8 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">track_changes</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Monitoramento Ativo</h3>
+<p class="font-body-md text-body-md text-secondary">
+                        Acompanhe o status de todas as suas candidaturas em um único lugar, com lembretes inteligentes para follow-ups.
+                    </p>
+</div>
+<!-- Wide Feature: Resume Adaptation -->
+<div class="md:col-span-8 bento-card rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center bg-surface-container-low">
+<div class="flex-1">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Adaptação de Currículo</h3>
+<p class="font-body-md text-body-md text-secondary">
+                            Gere versões personalizadas do seu currículo para cada vaga específica em segundos, destacando as palavras-chave que os recrutadores buscam.
+                        </p>
+<button class="mt-6 text-primary font-label-md flex items-center gap-2 hover:underline">
+                            Ver como funciona <span class="material-symbols-outlined">arrow_outward</span>
+</button>
+</div>
+<div class="flex-1 bg-white p-6 rounded-lg shadow-sm border border-outline-variant w-full">
+<div class="space-y-3">
+<div class="h-2 bg-primary/20 rounded w-3/4"></div>
+<div class="h-2 bg-primary/10 rounded w-1/2"></div>
+<div class="h-2 bg-primary/10 rounded w-5/6"></div>
+<div class="h-8 bg-primary-container rounded flex items-center px-3 text-[10px] text-on-primary-container font-bold">
+                                OTIMIZADO PELA IA
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-desktop max-w-max-width mx-auto py-24 mb-16">
+<div class="bg-primary rounded-[2rem] p-12 md:p-24 text-center text-white overflow-hidden relative">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#c6eea2_0%,transparent_50%)] opacity-20"></div>
+<h2 class="font-headline-xl text-headline-xl mb-6 relative z-10">Pronto para transformar sua carreira?</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed mb-12 max-w-2xl mx-auto relative z-10">
+                    Junte-se a mais de 50.000 profissionais que já estão usando a EmployMe para encontrar as melhores oportunidades.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+<button class="px-10 py-5 bg-white text-primary font-headline-md text-[18px] rounded-full hover:bg-primary-container transition-all">
+                        Começar Gratuitamente
+                    </button>
+<button class="px-10 py-5 border border-white/30 text-white font-headline-md text-[18px] rounded-full hover:bg-white/10 transition-all">
+                        Falar com Consultor
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="w-full py-12 px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between gap-gutter">
+<div class="flex flex-col gap-6 max-w-xs">
+<div class="flex items-center gap-3">
+<img alt="Logo" class="h-16 w-16" src="Imagens/EmployMe2.PNG"/>
+<span class="font-headline-lg text-headline-lg font-black text-on-surface dark:text-inverse-on-surface">EmployMe</span>
+</div>
+<p class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim">
+                    Transformando a busca por talentos através da inteligência artificial ética e focada no ser humano.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">language</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">alternate_email</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="font-bold font-label-md text-on-surface">Produto</h4>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Vagas</a>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Adaptar Currículo</a>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Upskilling</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold font-label-md text-on-surface">Empresa</h4>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Sobre Nós</a>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Carreiras</a>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Ética em IA</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold font-label-md text-on-surface">Suporte</h4>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Termos de Uso</a>
+<a class="font-label-md text-label-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline decoration-transparent hover:decoration-current transition-all" href="#">Privacidade</a>
+</div>
+</div>
+</div>
+<div class="w-full py-6 px-margin-desktop max-w-max-width mx-auto border-t border-outline-variant/50">
+<p class="font-label-sm text-label-sm text-on-secondary-fixed-variant dark:text-secondary-fixed-dim text-center">
+                © 2024 EmployMe AI. Todos os direitos reservados.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out');
+            observer.observe(card);
+        });
+
+        // Sticky header effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-sm', 'glass-effect');
+            } else {
+                header.classList.remove('shadow-sm', 'glass-effect');
+            }
+        });
+    </script>
+</body></html>
